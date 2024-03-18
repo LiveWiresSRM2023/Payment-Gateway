@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2? family=Montserrat:wght@100&display=swap');
+.star {
+transform-style: preserve-3d;
+width: 1px;
+height: 1px;
+position: absolute;
+color: red;
+}
+.star:before {
+position: absolute;
+content: '\2726';
+color: inherit;
+inset: 8;
+box-shadow: 0 0 1em.5em #a3c2;
+filter: drop-shadow(88.5em white);
+text-shadow: 8 6.8em #fff5;
+}
