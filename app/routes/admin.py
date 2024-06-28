@@ -1,18 +1,19 @@
-from flask import Blueprint, render_template, current_app
+from flask import Blueprint, render_template, send_file
+from app.utils.firebase import get_all_payment_details
 from app.utils.export import export_to_excel
+import io
 
 admin_bp = Blueprint('admin', __name__)
 
-@admin_bp.route('/admin')
+@admin_bp.route('/admin/payments', methods=['GET'])
 def admin():
-    db = current_app.config['FIREBASE']
-    users = db.child("successful_payments").get().each()
-    user_details = [user.val() for user in users]
-    return render_template('admin.html', users=user_details)
+    payments = get_all_payment_details()
+    return render_template('admin.html', payments=payments)
 
-@admin_bp.route('/export')
-def export_data():
-    db = current_app.config['FIREBASE']
-    users = db.child("successful_payments").get().each()
-    user_details = [user.val() for user in users]
-    return export_to_excel(user_details)
+@admin_bp.route('/admin/download', methods=['GET'])
+def download_payments():
+    payments = get_all_payment_details()
+    output = io.BytesIO()
+    export_to_excel(payments, output)
+    output.seek(0)
+    return send_file(output, attachment_filename="payments.xlsx", as_attachment=True)

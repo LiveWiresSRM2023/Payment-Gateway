@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin</title>
+</head>
+<body>
+    <h1>Admin Panel</h1>
+    <h2>User Details</h2>
+    <table border="1">
+        <tr>
+            <th>Order ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.order_id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.phone }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/admin/download">Download Excel</a>
+</body>
+</html>
