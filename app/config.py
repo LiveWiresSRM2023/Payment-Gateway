@@ -8,8 +8,14 @@ class Config:
         "databaseURL": os.environ.get('FIREBASE_DATABASE_URL'),
         "storageBucket": os.environ.get('FIREBASE_STORAGE_BUCKET')
     }
-    CASHFREE_CLIENT_ID = os.environ.get('CASHFREE_CLIENT_ID')
-    CASHFREE_CLIENT_SECRET = os.environ.get('CASHFREE_CLIENT_SECRET')
+    CASHFREE_APP_ID = os.environ.get('CASHFREE_APP_ID')
+    CASHFREE_APP_SECRET = os.environ.get('CASHFREE_APP_SECRET')
+    MAIL_SERVER = os.environ.get('MAIL_SERVER')
+    MAIL_PORT = os.environ.get('MAIL_PORT')
+    MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
+    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
+    MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS')
+    MAIL_USE_SSL = os.environ.get('MAIL_USE_SSL')
 
 class DevelopmentConfig(Config):
     DEBUG = True
