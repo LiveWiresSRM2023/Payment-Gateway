@@ -15,8 +15,8 @@ To install, follow these steps:
 ## How to Run 
 1. Create a Firebase app and use a real-time database
 2. get firebase_config and paste it into app/init.py
-3. copy the real-time database link and paste it into firebase.py 
-    ```
+3. copy the real-time database link and paste it into firebase.py 77
+
 4. Excute the file
     ```sh
      run.py
